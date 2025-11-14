@@ -11,6 +11,7 @@ describe("Agent Form Validations",()=>{
     cy.clearAllLocalStorage();
     cy.clearAllSessionStorage();
    cy.login(Cypress.env("TEST_USER"), Cypress.env("TEST_PASS"));
+   
   })
     it('Validate mandatory fields in lead form',()=>{
 
