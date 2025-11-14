@@ -12,7 +12,7 @@
 Cypress.Commands.add('login', (username, password) => {
     // Defining the intercepts
     cy.intercept('GET', '**/auth/v1/user').as('userProfile');
-
+    
     // Performing the login steps
     cy.visit('/login',{failOnStatusCode: false});
     cy.get('input[placeholder="Email"]').type(username);
