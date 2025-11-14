@@ -20,8 +20,8 @@ jobs:
           command: npm run cy:run
           install-command: npm install
         env:
-          TEST_USER: ${{ secrets.TEST_USER }}
-          TEST_PASS: ${{ secrets.TEST_PASS }}
+         CYPRESS_TEST_USER: ${{ secrets.TEST_USER }}
+         CYPRESS_TEST_PASS: ${{ secrets.TEST_PASS }}
 
       - name: Upload Mochawesome Report
         if: always()
