@@ -14,22 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use NPM cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -38,10 +22,8 @@ jobs:
           TEST_USER: ${{ secrets.TEST_USER }}
           TEST_PASS: ${{ secrets.TEST_PASS }}
 
-      - name: Ensure reports folder exists
-        run: mkdir -p cypress/reports/html
-
       - name: Upload Mochawesome Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
