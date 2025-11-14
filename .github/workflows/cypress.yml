@@ -18,6 +18,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           command: npm run cy:run
+          install-command: npm install
         env:
           TEST_USER: ${{ secrets.TEST_USER }}
           TEST_PASS: ${{ secrets.TEST_PASS }}
