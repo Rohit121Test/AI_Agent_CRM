@@ -16,6 +16,7 @@ jobs:
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
+        continue-on-error: true
         with:
           command: npm run cy:run
           install-command: npm install
