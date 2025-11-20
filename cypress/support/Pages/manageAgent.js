@@ -18,7 +18,7 @@ class ManageAgent{
 
     }
     validateTokenLimit(){
-   // ***This fucntion checks if chat tokens are exhausted and skips the test if they are
+   // ***This function checks if chat tokens are exhausted and skips the test if they are
         cy.contains(/chats used$/)
           .invoke('text')
           .then((text) => {
@@ -116,7 +116,7 @@ class ManageAgent{
          'invalidPhone': this.selectors.invalidPhoneError,
          'none': null  
        };
-    // For non Reuired field, ensure no reuired error is shown
+    // For non Reuired field, ensure no required error is shown
      if (errorType === 'none') {
       return this.verifyNoRequiredError(labelText);
      }
@@ -133,13 +133,12 @@ class ManageAgent{
       .should("contain.text", errorText)
       .and("be.visible");
     
-    // return this; // Allow method chaining
     }
 
 
     verifyNoRequiredError(labelText) {
     this.getChatIframe()
-    .contains("h3", this.selectors.leadFormHeader)           // anchor to form
+    .contains("h3", this.selectors.leadFormHeader)           
     .parents("div")
     .find("label")
     .contains(labelText)

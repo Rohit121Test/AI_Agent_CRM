@@ -9,10 +9,9 @@ class ContactCrm {
     submitButton: 'button[type="submit"]'
     };
 
-
     visit() {
         cy.visit('/crm/contacts');
-        cy.get(this.selectors.pageTitle).contains("Contacts").should('be.visible', { timeout: 150000 });
+        cy.get(this.selectors.pageTitle).contains("Contacts").should('be.visible');
     }
     getContactsData() {
         return cy.get('@getContacts')
@@ -78,8 +77,6 @@ class ContactCrm {
     )
   })
 }
-
-
 
     updateEmial(email){
         cy.contains('label', 'Email Address')      
