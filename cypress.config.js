@@ -18,7 +18,6 @@ module.exports = defineConfig({
   defaultBrowser: 'chrome',
   numTestsKeptInMemory: 0,
   chromeWebSecurity: false,
-
   //  REQUIRED FOR MOCHAWESOME
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
